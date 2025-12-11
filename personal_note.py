@@ -1,0 +1,38 @@
+def task():
+    tasks=[] 
+    print("-------WELCOME TO YOUR PERSONAL TASK MANAGER APP-------\n\n\n\n\n")
+
+    total_task=int(input("Enter the total number of tasks you want to add: "))
+    for i in range(1, total_task+1):
+        task_name=input(f"Enter task {i} = ")
+        tasks.append(task_name)
+
+    print("Todays Tasks are:\n{tasks}")
+
+    while True:
+        operation=input("Enter: \n1 Add \n2 Update \n3 Delete \n4 View \n5 Exit")
+        if operation=="1":
+            add=input("Enter the task you want to add: ")
+            tasks.append(add)
+            print(f"Task {add} added successfully.")
+        elif operation=="2":
+               updated_val=input("Enter the task you want to update: ")
+               if updated_val in tasks:
+                     up=input("Enter new task: ")
+                     ind=tasks.index(updated_val)
+                     tasks[ind]=up
+                     print(f"Updated task {up}")
+        elif operation=="3":
+            del_val=input("Which task you want to delete: ")
+            if del_val in tasks:
+                ind=tasks.index(del_val)
+                tasks.pop(ind)
+                print(f"Task {del_val} has been deleted...")
+        elif operation=="4":
+            print("Total Tasks are:\n\n{tasks}")
+        elif operation=="5":
+            print("Exiting the Task Manager App. Have a great day!!!!")
+            break
+        else:
+            print("Invalid input")
+task()
